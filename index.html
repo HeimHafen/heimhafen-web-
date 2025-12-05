@@ -16,8 +16,8 @@
     content="Moderne, mobile-optimierte Websites und Web-Apps für Campingplätze, Destinationen und familienfreundliche Betriebe."
   />
   <meta property="og:type" content="website" />
-  <!-- Tipp: Hier deine echte URL einsetzen, z. B. https://heimhafen.github.io/heimhafen-web/ oder deine Domain -->
-  <meta property="og:url" content="https://heimhafen.github.io/heimhafen-web/" />
+  <!-- Tipp: Hier deine echte URL einsetzen, z. B. deine eigene Domain -->
+  <meta property="og:url" content="https://heimhafen.github.io/heimhafen-web-/" />
   <!-- Optional: später eigenes OG-Bild hinzufügen -->
   <!-- <meta property="og:image" content="https://deine-domain.de/og-image.jpg" /> -->
 
@@ -564,6 +564,14 @@
     .project-card__actions {
       margin-top: var(--space-s);
       font-size: 0.9rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-s);
+      align-items: center;
+    }
+
+    .project-card__actions span {
+      color: var(--color-text-soft);
     }
 
     .project-card__thumb {
@@ -953,13 +961,20 @@
                   Infos & FAQ sowie eine unkomplizierte Kontaktmöglichkeit.
                 </p>
                 <div class="project-card__actions">
-                  <!-- Später: echten Link zur Demo-Seite einsetzen -->
-                  <span>Live-Demo folgt – Platzhalter für dein Showcase-Projekt.</span>
+                  <a
+                    href="https://heimhafen.github.io/familiencamp-heideglueck/"
+                    class="btn btn--ghost"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Live-Demo ansehen
+                  </a>
+                  <span>Demo-Website, umgesetzt als eigenständiges Beispielprojekt.</span>
                 </div>
               </div>
               <div class="project-card__thumb">
                 Platzhalter für Screenshot<br />
-                <small>Hier kannst du später Screenshots und den Link zur Demo-Seite einfügen.</small>
+                <small>Hier kannst du später Screenshots der Live-Demo einfügen.</small>
               </div>
             </article>
 
@@ -978,7 +993,6 @@
                   professionell und vertrauenswürdig auftreten können.
                 </p>
                 <div class="project-card__actions">
-                  <!-- Später: echten Link zur Demo-Seite einsetzen -->
                   <span>Live-Demo folgt – Platzhalter für weiteres Showcase.</span>
                 </div>
               </div>
