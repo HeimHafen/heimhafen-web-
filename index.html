@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>HeimHafen Web – Websites & Web-Apps</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Moderne Websites und Web-Apps für Campingplätze, Destinationen und familienfreundliche Betriebe." />
+
+  <style>
+    /* ========== Basis-Styles & Variablen ========== */
+
+    :root {
+      --color-bg: #f5f5f7;
+      --color-surface: #ffffff;
+      --color-primary: #1f5b82;
+      --color-primary-soft: #e4f0f8;
+      --color-text: #14151a;
+      --color-text-soft: #4b4f5c;
+      --color-border: #dde0e7;
+      --color-accent: #f4a259;
+
+      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+      --radius-s: 6px;
+      --radius-m: 10px;
+
+      --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.04);
+
+      --space-xs: 0.4rem;
+      --space-s: 0.8rem;
+      --space-m: 1.2rem;
+      --space-l: 2rem;
+      --space-xl: 3rem;
+      --space-xxl: 4rem;
+
+      --content-width: 1080px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: var(--font-sans);
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: var(--color-primary);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* ========== Layout-Wrapper ========== */
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--content-width);
+      margin: 0 auto;
+      padding: 0 var(--space-m);
+    }
+
+    /* ========== Header & Navigation ========== */
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(245, 245, 247, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(221, 224, 231, 0.7);
+    }
+
+    .site-header__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--space-s) 0;
+    }
+
+    .site-brand {
+      display: flex;
+      align-items: center;
+      gap: var(--space-s);
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+    }
+
+    .site-brand__logo {
+      width: 30px;
+      height: 30px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+    }
+
+    .site-nav {
+      display: flex;
+      align-items: center;
+      gap: var(--space-l);
+    }
+
+    .site-nav__list {
+      list-style: none;
+      display: flex;
+      gap: var(--space-m);
+      margin: 0;
+      padding: 0;
+      font-size: 0.95rem;
+    }
+
+    .site-nav__link {
+      padding: var(--space-xs) 0;
+      border-bottom: 2px solid transparent;
+    }
+
+    .site-nav__link:hover,
+    .site-nav__link--active {
+      border-bottom-color: var(--color-primary);
+    }
+
+    .site-nav__cta {
+      padding: 0.6rem 1rem;
+      border-radius: 999px;
+      border: none;
+      background: var(--color-primary);
+      color: #fff;
+      font-size: 0.9rem;
+      cursor: pointer;
+      font-weight: 500;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+    }
+
+    .site-nav__cta:hover {
+      filter: brightness(1.05);
+    }
+
+    /* Mobile-Navigation */
+
+    .site-nav__toggle {
+      display: none;
+      border: none;
+      background: none;
+      font-size: 1.3rem;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .site-nav__list,
+      .site-nav__cta {
+        display: none;
+      }
+
+      .site-nav--open .site-nav__list,
+      .site-nav--open .site-nav__cta {
+        display: flex;
+      }
+
+      .site-nav--open .site-nav__list {
+        flex-direction: column;
+        align-items: flex-start;
+        background: var(--color-bg);
+        position: absolute;
+        top: 56px;
+        right: 0;
+        left: 0;
+        padding: var(--space-m);
+        border-bottom: 1px solid var(--color-border);
+      }
+
+      .site-nav--open .site-nav__cta {
+        margin: var(--space-s) var(--space-m);
+      }
+
+      .site-nav__toggle {
+        display: inline-flex;
+      }
+    }
+
+    /* ========== Hero ========== */
+
+    .hero {
+      padding: var(--space-xxl) 0 var(--space-xl);
+    }
+
+    .hero__grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: var(--space-xl);
+      align-items: center;
+    }
+
+    @media (max-width: 900px) {
+      .hero__grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .hero__eyebrow {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+      color: var(--color-text-soft);
+      margin-bottom: var(--space-xs);
+    }
+
+    .hero__title {
+      font-size: clamp(2.1rem, 3vw, 2.8rem);
+      line-height: 1.15;
+      margin: 0 0 var(--space-m);
+    }
+
+    .hero__title span {
+      color: var(--color-primary);
+    }
+
+    .hero__text {
+      font-size: 1.02rem;
+      color: var(--color-text-soft);
+      margin-bottom: var(--space-l);
+      max-width: 40rem;
+    }
+
+    .hero__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-s);
+      margin-bottom: var(--space-m);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      border-radius: 999px;
+      padding: 0.75rem 1.3rem;
+      border: none;
+      cursor: pointer;
+      font-size: 0.95rem;
+      font-weight: 500;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .btn--primary {
+      background: var(--color-primary);
+      color: #fff;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.18);
+    }
+
+    .btn--primary:hover {
+      filter: brightness(1.05);
+    }
+
+    .btn--ghost {
+      background: transparent;
+      border: 1px solid var(--color-border);
+      color: var(--color-text-soft);
+    }
+
+    .btn--ghost:hover {
+      background: #ffffff;
+    }
+
+    .hero__meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-s);
+      font-size: 0.85rem;
+      color: var(--color-text-soft);
+    }
+
+    .hero__meta-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .hero__meta-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--color-accent);
+    }
+
+    .hero__card {
+      background: var(--color-surface);
+      border-radius: var(--radius-m);
+      padding: var(--space-l);
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(221, 224, 231, 0.8);
+    }
+
+    .hero__card-title {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+      color: var(--color-text-soft);
+      margin-bottom: var(--space-s);
+    }
+
+    .hero__card-highlight {
+      font-size: 0.95rem;
+      font-weight: 500;
+      margin-bottom: var(--space-s);
+    }
+
+    .hero__card-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 var(--space-m);
+      font-size: 0.9rem;
+      color: var(--color-text-soft);
+    }
+
+    .hero__card-list li {
+      display: flex;
+      gap: 0.4rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .hero__card-list li::before {
+      content: "•";
+      color: var(--color-primary);
+    }
+
+    .hero__card-note {
+      font-size: 0.8rem;
+      color: var(--color-text-soft);
+      border-top: 1px dashed var(--color-border);
+      padding-top: var(--space-s);
+    }
+
+    /* ========== Sections allgemein ========== */
+
+    .section {
+      padding: var(--space-xl) 0;
+    }
+
+    .section--alt {
+      background: #ffffff;
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .section__header {
+      margin-bottom: var(--space-l);
+      max-width: 40rem;
+    }
+
+    .section__eyebrow {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+      color: var(--color-text-soft);
+      margin-bottom: var(--space-xs);
+    }
+
+    .section__title {
+      font-size: 1.6rem;
+      margin: 0 0 var(--space-s);
+    }
+
+    .section__intro {
+      color: var(--color-text-soft);
+      font-size: 0.98rem;
+    }
+
+    /* ========== Zielgruppen ========== */
+
+    .audiences__grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: var(--space-m);
+    }
+
+    @media (max-width: 1000px) {
+      .audiences__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 600px) {
+      .audiences__grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .card {
+      background: var(--color-surface);
+      border-radius: var(--radius-m);
+      padding: var(--space-m);
+      border: 1px solid rgba(221, 224, 231, 0.9);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.03);
+    }
+
+    .card__title {
+      font-size: 1rem;
+      margin: 0 0 var(--space-xs);
+    }
+
+    .card__text {
+      font-size: 0.9rem;
+      color: var(--color-text-soft);
+    }
+
+    /* ========== Leistungen ========== */
+
+    .services__grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--space-m);
+      align-items: stretch;
+    }
+
+    @media (max-width: 1000px) {
+      .services__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 700px) {
+      .services__grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .service-card {
+      background: var(--color-surface);
+      border-radius: var(--radius-m);
+      padding: var(--space-m);
+      border: 1px solid rgba(221, 224, 231, 0.9);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-s);
+    }
+
+    .service-card__label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--color-text-soft);
+      font-weight: 600;
+    }
+
+    .service-card__title {
+      font-size: 1.1rem;
+      margin: 0;
+    }
+
+    .service-card__text {
+      font-size: 0.9rem;
+      color: var(--color-text-soft);
+      flex: 1;
+    }
+
+    .service-card__meta {
+      font-size: 0.85rem;
+      color: var(--color-text-soft);
+      padding-top: var(--space-xs);
+      border-top: 1px dashed var(--color-border);
+    }
+
+    /* ========== Projekte ========== */
+
+    .projects__list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-m);
+    }
+
+    .project-card {
+      background: var(--color-surface);
+      border-radius: var(--radius-m);
+      padding: var(--space-m);
+      border: 1px solid rgba(221, 224, 231, 0.9);
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: var(--space-m);
+      align-items: start;
+    }
+
+    @media (max-width: 900px) {
+      .project-card {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .project-card__label {
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-text-soft);
+      margin-bottom: var(--space-xs);
+    }
+
+    .project-card__title {
+      font-size: 1.1rem;
+      margin: 0 0 var(--space-xs);
+    }
+
+    .project-card__meta {
+      font-size: 0.85rem;
+      color: var(--color-text-soft);
+      margin-bottom: var(--space-s);
+    }
+
+    .project-card__text {
+      font-size: 0.9rem;
+      color: var(--color-text-soft);
+    }
+
+    .project-card__actions {
+      margin-top: var(--space-s);
+      font-size: 0.9rem;
+    }
+
+    .project-card__thumb {
+      background: var(--color-primary-soft);
+      border-radius: var(--radius-m);
+      padding: var(--space-m);
+      font-size: 0.85rem;
+      color: var(--color-text-soft);
+      border: 1px dashed var(--color-border);
+    }
+
+    /* ========== Über mich ========== */
+
+    .about__grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: var(--space-l);
+      align-items: start;
+    }
+
+    @media (max-width: 900px) {
+      .about__grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .about__highlight {
+      background: var(--color-primary-soft);
+      border-radius: var(--radius-m);
+      padding: var(--space-m);
+      font-size: 0.9rem;
+      color: var(--color-text-soft);
+      border: 1px solid rgba(221, 224, 231, 0.9);
+    }
+
+    /* ========== Ablauf ========== */
+
+    .process__steps {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: var(--space-m);
+    }
+
+    @media (max-width: 1000px) {
+      .process__steps {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 600px) {
+      .process__steps {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .step-card {
+      background: var(--color-surface);
+      border-radius: var(--radius-m);
+      padding: var(--space-m);
+      border: 1px solid rgba(221, 224, 231, 0.9);
+    }
+
+    .step-card__badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      background: var(--color-primary-soft);
+      color: var(--color-primary);
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: var(--space-s);
+    }
+
+    .step-card__title {
+      font-size: 1rem;
+      margin: 0 0 var(--space-xs);
+    }
+
+    .step-card__text {
+      font-size: 0.9rem;
+      color: var(--color-text-soft);
+    }
+
+    /* ========== Kontakt ========== */
+
+    .contact__grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: var(--space-l);
+      align-items: start;
+    }
+
+    @media (max-width: 900px) {
+      .contact__grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .contact-form {
+      background: var(--color-surface);
+      border-radius: var(--radius-m);
+      padding: var(--space-m);
+      border: 1px solid rgba(221, 224, 231, 0.9);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .form-group {
+      margin-bottom: var(--space-m);
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.9rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .form-input,
+    .form-textarea {
+      width: 100%;
+      border-radius: 8px;
+      border: 1px solid var(--color-border);
+      padding: 0.6rem 0.8rem;
+      font-size: 0.9rem;
+      font-family: var(--font-sans);
+      background: #fff;
+    }
+
+    .form-input:focus,
+    .form-textarea:focus {
+      outline: 2px solid var(--color-primary-soft);
+      border-color: var(--color-primary);
+    }
+
+    .form-textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    .contact__note {
+      font-size: 0.86rem;
+      color: var(--color-text-soft);
+      margin-top: var(--space-s);
+    }
+
+    .contact__meta {
+      font-size: 0.9rem;
+      color: var(--color-text-soft);
+    }
+
+    /* ========== Footer ========== */
+
+    .site-footer {
+      border-top: 1px solid var(--color-border);
+      padding: var(--space-m) 0;
+      margin-top: var(--space-xl);
+    }
+
+    .site-footer__inner {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-s);
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: var(--color-text-soft);
+    }
+
+    .site-footer__links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-m);
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- ========== Header / Navigation ========== -->
+    <header class="site-header">
+      <div class="container site-header__inner">
+        <div class="site-brand">
+          <div class="site-brand__logo" aria-hidden="true"></div>
+          <div class="site-brand__text">
+            <div>HeimHafen Web</div>
+          </div>
+        </div>
+        <nav class="site-nav" id="site-nav">
+          <button class="site-nav__toggle" aria-label="Navigation umschalten" onclick="toggleNav()">
+            ☰
+          </button>
+          <ul class="site-nav__list">
+            <li><a href="#leistungen" class="site-nav__link">Leistungen</a></li>
+            <li><a href="#projekte" class="site-nav__link">Projekte</a></li>
+            <li><a href="#about" class="site-nav__link">Über mich</a></li>
+            <li><a href="#ablauf" class="site-nav__link">Ablauf</a></li>
+            <li><a href="#kontakt" class="site-nav__link">Kontakt</a></li>
+          </ul>
+          <button class="site-nav__cta" onclick="document.getElementById('kontakt').scrollIntoView({behavior:'smooth'})">
+            Projekt anfragen
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- ========== Hero ========== -->
+      <section class="hero" id="start">
+        <div class="container hero__grid">
+          <div>
+            <div class="hero__eyebrow">Websites & Web-Apps</div>
+            <h1 class="hero__title">
+              Moderne Webauftritte für <span>Campingplätze, Destinationen</span> und familienfreundliche Betriebe.
+            </h1>
+            <p class="hero__text">
+              Ich entwickle schlanke, mobile-optimierte Websites und spezialisierte Web-Apps, die Ihren Gästen helfen,
+              schnell zu finden, was sie suchen – statt sich durch Textwüsten und veraltete Seiten zu kämpfen.
+            </p>
+            <div class="hero__actions">
+              <a href="#kontakt" class="btn btn--primary">Projekt anfragen</a>
+              <a href="#projekte" class="btn btn--ghost">Beispiele ansehen</a>
+            </div>
+            <div class="hero__meta">
+              <div class="hero__meta-item">
+                <span class="hero__meta-dot"></span> Fokus auf Familien- & Gästeperspektive
+              </div>
+              <div class="hero__meta-item">
+                <span class="hero__meta-dot"></span> Mobil zuerst gedacht
+              </div>
+              <div class="hero__meta-item">
+                <span class="hero__meta-dot"></span> Technik ohne Agentur-Overhead
+              </div>
+            </div>
+          </div>
+
+          <aside class="hero__card" aria-label="Kurzüberblick zu Angebot">
+            <div class="hero__card-title">Was Sie erwarten können</div>
+            <div class="hero__card-highlight">
+              Klar strukturierte Websites und Web-Apps mit echtem Familien- & Gäste-Fokus – keine unverständlichen Baukästen, kein „Design um des Designs willen“.
+            </div>
+            <ul class="hero__card-list">
+              <li>Schlanke, verständliche Seitenstruktur</li>
+              <li>Mobile-optimierte Umsetzung & schnelle Ladezeiten</li>
+              <li>Technisch saubere Basis (HTML, CSS, JS, PWA wo sinnvoll)</li>
+              <li>DSGVO und Zugriff per Smartphone im Blick</li>
+            </ul>
+            <div class="hero__card-note">
+              Hinweis: Texte, Bilder und Inhalte dieser Seite sind Muster und können Schritt für Schritt angepasst werden.
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- ========== Zielgruppen ========== -->
+      <section class="section section--alt" id="zielgruppen">
+        <div class="container">
+          <header class="section__header">
+            <div class="section__eyebrow">Für wen</div>
+            <h2 class="section__title">Für welche Betriebe meine Websites besonders gut funktionieren</h2>
+            <p class="section__intro">
+              Ich arbeite besonders gerne mit Menschen, die Familien, Gäste und Besucher:innen glücklich machen wollen –
+              und dafür eine Website brauchen, die genauso klar und einladend ist wie ihr Angebot vor Ort.
+            </p>
+          </header>
+
+          <div class="audiences__grid">
+            <article class="card">
+              <h3 class="card__title">Campingplätze & Stellplätze</h3>
+              <p class="card__text">
+                Übersichtliche Darstellung von Stellplätzen, Ausstattung, Preisen und Umgebung – auf dem Smartphone
+                genauso gut nutzbar wie am PC.
+              </p>
+            </article>
+            <article class="card">
+              <h3 class="card__title">Destinationen & Tourismusregionen</h3>
+              <p class="card__text">
+                Ausflugstipps, Familienangebote und Lieblingsorte gebündelt an einem Ort – statt verstreuter PDFs und
+                veralteter Unterseiten.
+              </p>
+            </article>
+            <article class="card">
+              <h3 class="card__title">Familienfreundliche Betriebe</h3>
+              <p class="card__text">
+                Cafés, Höfe, Freizeitangebote, Kitas, Vereine: Eine Website, die Familien mit wenigen Klicks zeigt, ob
+                sie bei Ihnen richtig sind.
+              </p>
+            </article>
+            <article class="card">
+              <h3 class="card__title">Lokale Dienstleister & kleine Unternehmen</h3>
+              <p class="card__text">
+                Klare Leistungsseiten, sympathische Vorstellung Ihres Unternehmens und eine einfache Möglichkeit zur
+                Kontaktaufnahme.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== Leistungen ========== -->
+      <section class="section" id="leistungen">
+        <div class="container">
+          <header class="section__header">
+            <div class="section__eyebrow">Leistungen</div>
+            <h2 class="section__title">Was ich für Sie umsetze</h2>
+            <p class="section__intro">
+              Ob neue Website oder Überarbeitung eines bestehenden Auftritts – entscheidend ist, dass Ihre Seite für
+              Ihre Gäste funktioniert. Technisch sauber, leicht zu pflegen und verständlich für Menschen ohne
+              Technik-Hintergrund.
+            </p>
+          </header>
+
+          <div class="services__grid">
+            <article class="service-card">
+              <div class="service-card__label">Paket</div>
+              <h3 class="service-card__title">Website „Basis“</h3>
+              <p class="service-card__text">
+                Schlanke, aber professionelle Website für kleine Betriebe. Typischer Umfang: Startseite, Angebot/Leistungen, Kontaktseite –
+                mobil optimiert und mit klaren Kontaktwegen.
+              </p>
+              <div class="service-card__meta">
+                Typischer Umfang: 1–3 Seiten. Projekte starten je nach Aufwand im Bereich eines niedrigen vierstelligen Betrags.
+              </div>
+            </article>
+
+            <article class="service-card">
+              <div class="service-card__label">Paket</div>
+              <h3 class="service-card__title">Website „Plus“</h3>
+              <p class="service-card__text">
+                Für Campingplätze, Destinationen und Unternehmen mit mehreren Angebotsbereichen. Mit klarer Struktur für Unterkünfte,
+                Umgebung, Über uns, FAQ und wiederkehrende Inhalte.
+              </p>
+              <div class="service-card__meta">
+                Typischer Umfang: 4–8 Seiten. Details und Festpreis klären wir nach einem kurzen Erstgespräch.
+              </div>
+            </article>
+
+            <article class="service-card">
+              <div class="service-card__label">Individuell</div>
+              <h3 class="service-card__title">Web-Apps & Kartenlösungen</h3>
+              <p class="service-card__text">
+                Interaktive Karten, familienfreundliche Spots und Web-Apps mit Offline-Funktion.
+                Ideal für Destinationen und Regionen, die ihren Gästen mehr bieten möchten als eine klassische Website.
+              </p>
+              <div class="service-card__meta">
+                Basierend u. a. auf Erfahrungen aus der eigenen Family Spots Map.
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== Projekte ========== -->
+      <section class="section section--alt" id="projekte">
+        <div class="container">
+          <header class="section__header">
+            <div class="section__eyebrow">Projekte</div>
+            <h2 class="section__title">Ausgewählte Beispiele & Showcases</h2>
+            <p class="section__intro">
+              Einige Einblicke in Projekte und Konzepte, die zeigen, wie Websites und Web-Apps aussehen können, wenn
+              sie konsequent aus Sicht der Gäste gedacht werden.
+            </p>
+          </header>
+
+          <div class="projects__list">
+            <article class="project-card">
+              <div>
+                <div class="project-card__label">Eigenes Produkt</div>
+                <h3 class="project-card__title">Family Spots Map</h3>
+                <div class="project-card__meta">
+                  Interaktive Web-App für familienfreundliche Orte & Angebote in einer Region.
+                </div>
+                <p class="project-card__text">
+                  Eine kuratierte Karte, die Eltern hilft, passende Ausflugsziele, Spielplätze und Angebote nach Alter,
+                  Stimmung und Wetter zu finden. Optimiert für Smartphones, offline nutzbar als Progressive Web App und bewusst
+                  ohne Tracking-Dienste umgesetzt.
+                </p>
+                <div class="project-card__actions">
+                  <!-- Hier deinen echten Link einsetzen -->
+                  <a href="https://heimhafen.github.io/Family-Spots-Map/" target="_blank" rel="noreferrer">Zur Live-Demo</a>
+                </div>
+              </div>
+              <div class="project-card__thumb">
+                Platzhalter für Screenshot<br />
+                <small>Hier könntest du später ein Bild oder eine Illustration der Family Spots Map einfügen.</small>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div>
+                <div class="project-card__label">Showcase</div>
+                <h3 class="project-card__title">Demo: Familiencamp Heideglück</h3>
+                <div class="project-card__meta">
+                  Fiktive, aber realitätsnahe Website für einen familienfreundlichen Campingplatz.
+                </div>
+                <p class="project-card__text">
+                  Konzipiert als Vorlage: klare Startseite, Vorstellung von Stellplätzen und Unterkünften, Erlebnisse in der
+                  Umgebung, Infos & FAQ sowie eine Kontakt- bzw. Anfrage-Seite. Ideal, um zu zeigen, wie ein Auftritt für
+                  Campingplätze und Ferienbetriebe aussehen kann.
+                </p>
+                <div class="project-card__actions">
+                  <!-- Hier später Link zur Demo-Seite einsetzen -->
+                  <span>Live-Demo folgt – Platzhalter für dein Showcase-Projekt.</span>
+                </div>
+              </div>
+              <div class="project-card__thumb">
+                Platzhalter für Screenshot<br />
+                <small>Hier kannst du später Screenshots und den Link zu deiner Demo-Seite einfügen.</small>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== Über mich ========== -->
+      <section class="section" id="about">
+        <div class="container">
+          <header class="section__header">
+            <div class="section__eyebrow">Über mich</div>
+            <h2 class="section__title">Wer hinter HeimHafen Web steht</h2>
+          </header>
+
+          <div class="about__grid">
+            <div>
+              <p>
+                Mein Name ist Markus Eiben. Ich entwickle Websites und Web-Apps mit einem klaren Fokus: Sie sollen
+                Menschen helfen, sich zurechtzufinden – besonders Familien, die unterwegs sind und schnell gute Entscheidungen
+                treffen müssen.
+              </p>
+              <p>
+                Aus dieser Perspektive ist auch die Family Spots Map entstanden: eine Anwendung, die familienfreundliche
+                Orte in einer Region sichtbar macht und Eltern die Auswahl erleichtert. Dieses Denken übertrage ich auf
+                Kundenprojekte – vom kleinen Betrieb bis zur Destination.
+              </p>
+              <p>
+                Statt opulenter Agenturstrukturen bekommen Sie bei mir direkte Zusammenarbeit: klare Absprachen, kurze Wege
+                und Lösungen, die sich in Ihrem Alltag bewähren müssen, nicht nur im Portfolio.
+              </p>
+            </div>
+            <aside class="about__highlight">
+              <strong>Was Sie an der Zusammenarbeit schätzen könnten:</strong>
+              <ul>
+                <li>Klarer Fokus auf Mobilgeräte & Familienperspektive</li>
+                <li>Technisch schlanke, gut wartbare Lösungen</li>
+                <li>Verständliche Erklärungen statt Fachbegriffen</li>
+              </ul>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== Ablauf ========== -->
+      <section class="section section--alt" id="ablauf">
+        <div class="container">
+          <header class="section__header">
+            <div class="section__eyebrow">Ablauf</div>
+            <h2 class="section__title">Wie die Zusammenarbeit typischerweise abläuft</h2>
+            <p class="section__intro">
+              Der Prozess ist bewusst einfach gehalten – damit Sie schnell wissen, womit Sie rechnen können, und sich
+              auf Ihr Tagesgeschäft konzentrieren können.
+            </p>
+          </header>
+
+          <div class="process__steps">
+            <article class="step-card">
+              <div class="step-card__badge">1</div>
+              <h3 class="step-card__title">Kennenlernen & Ziele</h3>
+              <p class="step-card__text">
+                In einem kurzen Gespräch klären wir, was Sie mit Ihrer Website erreichen wollen, wer Ihre Zielgruppe ist
+                und in welchem Rahmen sich das Projekt bewegen soll.
+              </p>
+            </article>
+            <article class="step-card">
+              <div class="step-card__badge">2</div>
+              <h3 class="step-card__title">Struktur & Angebot</h3>
+              <p class="step-card__text">
+                Ich erarbeite einen Vorschlag für Seitenstruktur und Inhalte und mache Ihnen auf dieser Basis ein
+                transparentes Festpreis-Angebot.
+              </p>
+            </article>
+            <article class="step-card">
+              <div class="step-card__badge">3</div>
+              <h3 class="step-card__title">Umsetzung & Feedback</h3>
+              <p class="step-card__text">
+                Ich setze Design und Technik um und zeige Ihnen Zwischenstände. In ein bis zwei Feedbackrunden passen wir
+                Inhalte und Details gemeinsam an.
+              </p>
+            </article>
+            <article class="step-card">
+              <div class="step-card__badge">4</div>
+              <h3 class="step-card__title">Launch & Feinschliff</h3>
+              <p class="step-card__text">
+                Nach Freigabe geht die Seite live. In den ersten Wochen sind kleinere Anpassungen inklusive, damit alles
+                für Sie und Ihre Gäste stimmig ist.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== Kontakt ========== -->
+      <section class="section" id="kontakt">
+        <div class="container">
+          <header class="section__header">
+            <div class="section__eyebrow">Kontakt</div>
+            <h2 class="section__title">Sprechen wir über Ihre Website</h2>
+            <p class="section__intro">
+              Ob neue Website, Überarbeitung einer bestehenden Seite oder eine Idee für eine Web-App – schreiben Sie mir
+              kurz, worum es geht, und ich melde mich mit einem Vorschlag für das weitere Vorgehen.
+            </p>
+          </header>
+
+          <div class="contact__grid">
+            <form class="contact-form">
+              <div class="form-group">
+                <label class="form-label" for="name">Name</label>
+                <input class="form-input" type="text" id="name" name="name" placeholder="Ihr Name" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="email">E-Mail</label>
+                <input class="form-input" type="email" id="email" name="email" placeholder="name@beispiel.de" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="company">Unternehmen / Projekt</label>
+                <input class="form-input" type="text" id="company" name="company" placeholder="Name Ihres Betriebs oder Projekts" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="message">Kurzbeschreibung oder Ziele</label>
+                <textarea class="form-textarea" id="message" name="message" placeholder="Worum geht es? Was soll Ihre Website leisten?"></textarea>
+              </div>
+              <button type="submit" class="btn btn--primary">Nachricht senden (Platzhalter)</button>
+              <p class="contact__note">
+                Hinweis: Dieses Formular ist aktuell nur ein Platzhalter. Später können Sie es z.&nbsp;B. mit einem
+                Formular-Dienst oder Backend verbinden.
+              </p>
+            </form>
+
+            <div class="contact__meta">
+              <p>
+                Alternativ können Sie mir auch direkt eine E-Mail schreiben:
+                <!-- Hier später echte Adresse einfügen -->
+                <a href="mailto:hallo@heimhafen-web.de">hallo@heimhafen-web.de</a>
+              </p>
+              <p>
+                In der Regel melde ich mich innerhalb von 1–2 Werktagen mit einer kurzen Einschätzung und einem
+                Vorschlag für das weitere Vorgehen.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ========== Footer ========== -->
+    <footer class="site-footer">
+      <div class="container site-footer__inner">
+        <div>© <span id="year"></span> HeimHafen Web – Markus Eiben</div>
+        <div class="site-footer__links">
+          <!-- Platzhalter für Impressum / Datenschutz -->
+          <a href="#start">Nach oben</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Jahreszahl automatisch setzen
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Mobile-Navigation umschalten
+    function toggleNav() {
+      const nav = document.getElementById("site-nav");
+      nav.classList.toggle("site-nav--open");
+    }
+  </script>
+</body>
+</html>
