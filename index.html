@@ -121,14 +121,14 @@
       background: rgba(245, 245, 247, 0.96);
       backdrop-filter: blur(14px);
       border-bottom: 1px solid rgba(221, 224, 231, 0.7);
-      padding-top: max(0.9rem, env(safe-area-inset-top));
-      padding-bottom: 0.9rem;
+      padding-top: max(1.1rem, env(safe-area-inset-top));
+      padding-bottom: 1.1rem;
     }
 
-    /* Header bewusst etwas schmaler und weiter eingerückt als der restliche Content */
+    /* Header etwas schmaler und weiter eingerückt als der Rest */
     .site-header .container {
-      max-width: 720px;
-      padding-inline: 1.75rem;
+      max-width: 760px;
+      padding-inline: 2.1rem;
     }
 
     .site-header__inner {
@@ -195,6 +195,13 @@
       color: var(--color-text-soft);
     }
 
+    /* auf sehr kleinen Screens Tagline ausblenden */
+    @media (max-width: 360px) {
+      .site-brand__tagline {
+        display: none;
+      }
+    }
+
     .site-nav {
       display: flex;
       align-items: center;
@@ -240,12 +247,24 @@
 
     .site-nav__toggle {
       display: none;
-      border-radius: 999px;
-      border: 1px solid rgba(221, 224, 231, 0.9);
-      padding: 0.55rem 0.7rem;
-      background: rgba(255, 255, 255, 0.9);
-      font-size: 1.1rem;
+      border: none;
+      padding: 0;
+      background: transparent;
       cursor: pointer;
+    }
+
+    .site-nav__toggle::before {
+      content: "☰";
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      background: #ffffff;
+      box-shadow: 0 10px 26px rgba(15, 35, 52, 0.16);
+      font-size: 1.1rem;
+      color: var(--color-text-soft);
     }
 
     @media (max-width: 768px) {
@@ -271,14 +290,14 @@
         background: var(--color-bg);
         position: absolute;
         top: 54px;
-        right: -1.75rem;
-        left: -1.75rem;
-        padding: var(--space-m) 1.75rem var(--space-m);
+        right: -2.1rem;
+        left: -2.1rem;
+        padding: var(--space-m) 2.1rem var(--space-m);
         border-bottom: 1px solid var(--color-border);
       }
 
       .site-nav--open .site-nav__cta {
-        margin: var(--space-s) 1.75rem var(--space-s);
+        margin: var(--space-s) 2.1rem var(--space-s);
       }
     }
 
@@ -825,9 +844,7 @@
             type="button"
             aria-label="Navigation umschalten"
             onclick="toggleNav()"
-          >
-            ☰
-          </button>
+          ></button>
           <ul class="site-nav__list">
             <li><a href="#leistungen" class="site-nav__link">Leistungen</a></li>
             <li><a href="#projekte" class="site-nav__link">Projekte</a></li>
