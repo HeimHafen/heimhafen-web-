@@ -2,15 +2,34 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <title>Was kostet eine Website bei HeimHafen Web?</title>
+  <title>Preise &amp; Pakete – HeimHafen Web</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta
     name="description"
-    content="Was kostet eine Website bei HeimHafen Web? Eine transparente Einordnung zu typischen Budgets und Leistungen für Campingplätze, Destinationen und familienfreundliche Betriebe."
+    content="Preise und Pakete von HeimHafen Web: Websites und Web-Apps für Campingplätze, Destinationen und familienfreundliche Betriebe – mit klaren, transparenten Festpreis-Angeboten."
   />
+
+  <!-- Open Graph / Social Preview -->
+  <meta property="og:title" content="Preise &amp; Pakete – HeimHafen Web" />
+  <meta
+    property="og:description"
+    content="Übersicht über Preise und typische Projektgrößen für Websites und Web-Apps von HeimHafen Web."
+  />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://heimhafen.github.io/heimhafen-web-/preise.html" />
+
+  <!-- Twitter Card (optional) -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Preise &amp; Pakete – HeimHafen Web" />
+  <meta
+    name="twitter:description"
+    content="Transparente Pakete und Richtpreise für Websites & Web-Apps mit Familienblick."
+  />
+
   <meta name="theme-color" content="#f5f5f7" />
   <link rel="canonical" href="https://heimhafen.github.io/heimhafen-web-/preise.html" />
 
+  <!-- Gleiche Styles wie auf index.html -->
   <style>
     :root {
       --color-bg: #f5f5f7;
@@ -24,7 +43,9 @@
 
       --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 
+      --radius-s: 6px;
       --radius-m: 10px;
+
       --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.04);
 
       --space-xs: 0.4rem;
@@ -34,7 +55,7 @@
       --space-xl: 3rem;
       --space-xxl: 4rem;
 
-      --content-width: 820px;
+      --content-width: 1080px;
     }
 
     * {
@@ -49,10 +70,12 @@
       background: var(--color-bg);
       color: var(--color-text);
       line-height: 1.6;
+      scroll-behavior: smooth;
     }
 
     img {
       max-width: 100%;
+      height: auto;
       display: block;
     }
 
@@ -63,6 +86,14 @@
 
     a:hover {
       text-decoration: underline;
+    }
+
+    .site-nav__link:focus-visible,
+    .btn:focus-visible,
+    .site-nav__toggle:focus-visible {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 3px;
+      text-decoration: none;
     }
 
     .page {
@@ -77,16 +108,6 @@
       margin: 0 auto;
       padding: 0 var(--space-m);
     }
-
-    .site-nav__link:focus-visible,
-    .btn:focus-visible,
-    .site-nav__toggle:focus-visible {
-      outline: 2px solid var(--color-primary);
-      outline-offset: 3px;
-      text-decoration: none;
-    }
-
-    /* ========== Header & Navigation (wie Startseite) ========== */
 
     .site-header {
       position: sticky;
@@ -278,10 +299,21 @@
       }
     }
 
-    /* ========== Preise-Seite: Hero & Sections ========== */
-
     .hero {
-      padding: var(--space-xl) 0 var(--space-l);
+      padding: var(--space-xxl) 0 var(--space-xl);
+    }
+
+    .hero__grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: var(--space-xl);
+      align-items: center;
+    }
+
+    @media (max-width: 900px) {
+      .hero__grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     .hero__eyebrow {
@@ -294,8 +326,8 @@
     }
 
     .hero__title {
-      font-size: clamp(1.9rem, 3vw, 2.3rem);
-      line-height: 1.2;
+      font-size: clamp(2.1rem, 3vw, 2.8rem);
+      line-height: 1.15;
       margin: 0 0 var(--space-m);
     }
 
@@ -303,151 +335,27 @@
       color: var(--color-primary);
     }
 
-    .hero__lead {
-      font-size: 1rem;
+    .hero__text {
+      font-size: 1.02rem;
       color: var(--color-text-soft);
-      margin-bottom: var(--space-m);
+      margin-bottom: var(--space-l);
       max-width: 40rem;
     }
 
-    .hero__note {
-      font-size: 0.9rem;
-      color: var(--color-text-soft);
-      background: var(--color-primary-soft);
-      border-radius: var(--radius-m);
-      padding: var(--space-s) var(--space-m);
-      border: 1px solid rgba(221, 224, 231, 0.9);
-      max-width: 44rem;
-    }
-
-    .section {
-      padding: var(--space-l) 0;
-    }
-
-    .section__title {
-      font-size: 1.2rem;
-      margin: 0 0 var(--space-s);
-    }
-
-    .section__intro {
-      font-size: 0.95rem;
-      color: var(--color-text-soft);
-      margin: 0 0 var(--space-m);
-    }
-
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      border-radius: 999px;
-      padding: 0.25rem 0.8rem;
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.09em;
-      background: #ffffff;
-      border: 1px solid var(--color-border);
-      color: var(--color-text-soft);
-    }
-
-    .pill__dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
-      background: var(--color-accent);
-    }
-
-    .card {
-      background: var(--color-surface);
-      border-radius: var(--radius-m);
-      padding: var(--space-m);
-      border: 1px solid rgba(221, 224, 231, 0.9);
-      box-shadow: var(--shadow-soft);
+    .hero__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-s);
       margin-bottom: var(--space-m);
-    }
-
-    .card--soft {
-      box-shadow: none;
-      background: #ffffff;
-    }
-
-    .card__label {
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--color-text-soft);
-      margin-bottom: var(--space-xs);
-    }
-
-    .card__title {
-      font-size: 1.05rem;
-      margin: 0 0 var(--space-xs);
-    }
-
-    .card__meta {
-      font-size: 0.9rem;
-      color: var(--color-text-soft);
-      margin-bottom: var(--space-s);
-    }
-
-    .card__list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      font-size: 0.9rem;
-      color: var(--color-text-soft);
-    }
-
-    .card__list li {
-      position: relative;
-      padding-left: 1.1rem;
-      margin-bottom: 0.35rem;
-    }
-
-    .card__list li::before {
-      content: "•";
-      position: absolute;
-      left: 0;
-      top: 0;
-      color: var(--color-primary);
-    }
-
-    .muted {
-      font-size: 0.85rem;
-      color: var(--color-text-soft);
-    }
-
-    /* CTA */
-
-    .cta {
-      padding: var(--space-l) 0 var(--space-xl);
-    }
-
-    .cta__box {
-      background: var(--color-primary);
-      color: #ffffff;
-      border-radius: var(--radius-m);
-      padding: var(--space-l) var(--space-m);
-      box-shadow: 0 18px 40px rgba(13, 35, 51, 0.35);
-      text-align: center;
-    }
-
-    .cta__title {
-      margin: 0 0 var(--space-s);
-      font-size: 1.4rem;
-    }
-
-    .cta__text {
-      margin: 0 0 var(--space-m);
-      font-size: 0.95rem;
-      opacity: 0.92;
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      gap: 0.4rem;
       border-radius: 999px;
-      padding: 0.75rem 1.6rem;
+      padding: 0.75rem 1.3rem;
       border: none;
       cursor: pointer;
       font-size: 0.95rem;
@@ -456,27 +364,267 @@
       white-space: nowrap;
     }
 
-    .btn--light {
+    .btn--primary {
+      background: var(--color-primary);
+      color: #fff;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.18);
+    }
+
+    .btn--primary:hover {
+      filter: brightness(1.05);
+    }
+
+    .btn--ghost {
+      background: transparent;
+      border: 1px solid var(--color-border);
+      color: var(--color-text-soft);
+    }
+
+    .btn--ghost:hover {
       background: #ffffff;
+    }
+
+    .hero__meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-s);
+      font-size: 0.85rem;
+      color: var(--color-text-soft);
+    }
+
+    .hero__meta-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .hero__meta-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--color-accent);
+    }
+
+    .hero__card {
+      background: var(--color-surface);
+      border-radius: var(--radius-m);
+      padding: var(--space-l);
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(221, 224, 231, 0.8);
+    }
+
+    .hero__card-title {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+      color: var(--color-text-soft);
+      margin-bottom: var(--space-s);
+    }
+
+    .hero__card-highlight {
+      font-size: 0.95rem;
+      font-weight: 500;
+      margin-bottom: var(--space-s);
+    }
+
+    .hero__card-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 var(--space-m);
+      font-size: 0.9rem;
+      color: var(--color-text-soft);
+    }
+
+    .hero__card-list li {
+      display: flex;
+      gap: 0.4rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .hero__card-list li::before {
+      content: "•";
       color: var(--color-primary);
     }
 
-    .btn--light:hover {
-      filter: brightness(0.97);
+    .hero__card-note {
+      font-size: 0.8rem;
+      color: var(--color-text-soft);
+      border-top: 1px dashed var(--color-border);
+      padding-top: var(--space-s);
     }
 
-    .cta__note {
-      margin-top: var(--space-s);
-      font-size: 0.82rem;
-      opacity: 0.9;
+    .section {
+      padding: var(--space-xl) 0;
     }
 
-    /* Footer wie Startseite */
+    .section--alt {
+      background: #ffffff;
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .section__header {
+      margin-bottom: var(--space-l);
+      max-width: 40rem;
+    }
+
+    .section__eyebrow {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+      color: var(--color-text-soft);
+      margin-bottom: var(--space-xs);
+    }
+
+    .section__title {
+      font-size: 1.6rem;
+      margin: 0 0 var(--space-s);
+    }
+
+    .section__intro {
+      color: var(--color-text-soft);
+      font-size: 0.98rem;
+    }
+
+    .audiences__grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: var(--space-m);
+    }
+
+    @media (max-width: 1000px) {
+      .audiences__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 600px) {
+      .audiences__grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .card {
+      background: var(--color-surface);
+      border-radius: var(--radius-m);
+      padding: var(--space-m);
+      border: 1px solid rgba(221, 224, 231, 0.9);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.03);
+    }
+
+    .card__title {
+      font-size: 1rem;
+      margin: 0 0 var(--space-xs);
+    }
+
+    .card__text {
+      font-size: 0.9rem;
+      color: var(--color-text-soft);
+    }
+
+    .services__grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--space-m);
+      align-items: stretch;
+    }
+
+    @media (max-width: 1000px) {
+      .services__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 700px) {
+      .services__grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .service-card {
+      background: var(--color-surface);
+      border-radius: var(--radius-m);
+      padding: var(--space-m);
+      border: 1px solid rgba(221, 224, 231, 0.9);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-s);
+    }
+
+    .service-card__label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--color-text-soft);
+      font-weight: 600;
+    }
+
+    .service-card__title {
+      font-size: 1.1rem;
+      margin: 0;
+    }
+
+    .service-card__text {
+      font-size: 0.9rem;
+      color: var(--color-text-soft);
+      flex: 1;
+    }
+
+    .service-card__meta {
+      font-size: 0.85rem;
+      color: var(--color-text-soft);
+      padding-top: var(--space-xs);
+      border-top: 1px dashed var(--color-border);
+    }
+
+    .projects__list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-m);
+    }
+
+    .project-card {
+      background: var(--color-surface);
+      border-radius: var(--radius-m);
+      padding: var(--space-m);
+      border: 1px solid rgba(221, 224, 231, 0.9);
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: var(--space-m);
+      align-items: start;
+    }
+
+    @media (max-width: 900px) {
+      .project-card {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .project-card__label {
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-text-soft);
+      margin-bottom: var(--space-xs);
+    }
+
+    .project-card__title {
+      font-size: 1.1rem;
+      margin: 0 0 var(--space-xs);
+    }
+
+    .project-card__meta,
+    .project-card__text {
+      font-size: 0.9rem;
+      color: var(--color-text-soft);
+    }
 
     .site-footer {
       border-top: 1px solid var(--color-border);
       padding: var(--space-m) 0;
-      margin-top: var(--space-l);
+      margin-top: var(--space-xl);
     }
 
     .site-footer__inner {
@@ -487,9 +635,6 @@
       justify-content: space-between;
       font-size: 0.8rem;
       color: var(--color-text-soft);
-      max-width: var(--content-width);
-      margin: 0 auto;
-      padding: 0 var(--space-m);
     }
 
     .site-footer__links {
@@ -507,12 +652,7 @@
         <div class="site-brand">
           <div class="site-brand__logo" aria-hidden="true">
             <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-              <circle
-                cx="12"
-                cy="8.3"
-                r="2.1"
-                fill="rgba(255,255,255,0.96)"
-              />
+              <circle cx="12" cy="8.3" r="2.1" fill="rgba(255,255,255,0.96)" />
               <path
                 d="M9 12.1c1-0.45 2-0.45 3 0s2 0.45 3 0"
                 fill="none"
@@ -531,7 +671,7 @@
           </div>
           <div class="site-brand__text">
             <div class="site-brand__name">HeimHafen Web</div>
-            <div class="site-brand__tagline">Websites &amp; Web-Apps mit Familienblick</div>
+            <div class="site-brand__tagline">Websites &amp; Web-Apps für Camping &amp; Destinationen</div>
           </div>
         </div>
         <nav class="site-nav" id="site-nav">
@@ -554,131 +694,247 @@
             type="button"
             onclick="window.location.href='index.html#kontakt'"
           >
-            Projekt anfragen
+            Unverbindliches Erstgespräch vereinbaren
           </button>
         </nav>
       </div>
     </header>
 
-    <!-- ========== Inhalt ========== -->
     <main>
-      <section class="hero">
-        <div class="container">
-          <div class="hero__eyebrow">Preise &amp; Budget</div>
-          <h1 class="hero__title">
-            Was kostet eine Website <span>bei HeimHafen Web?</span>
-          </h1>
-          <p class="hero__lead">
-            Kurz gesagt: Die meisten Projekte für kleine Betriebe, Campingplätze und familienfreundliche Angebote
-            bewegen sich im niedrigen vierstelligen Bereich. Entscheidend ist weniger die Anzahl der Seiten –
-            sondern, was Ihre Website für Ihre Gäste leisten soll.
-          </p>
-          <div class="hero__note">
-            Ich arbeite bewusst ohne Paket-Baukasten von der Stange. Nach einem kurzen Gespräch bekommen Sie von mir
-            eine klare Einordnung und ein transparentes Festpreis-Angebot.
-          </div>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="container">
-          <div class="pill">
-            <span class="pill__dot"></span> Typische Projektgrößen
-          </div>
-          <h2 class="section__title" style="margin-top:0.8rem;">
-            Womit Sie ungefähr rechnen können
-          </h2>
-          <p class="section__intro">
-            Die folgenden Spannweiten sind Anhaltspunkte – keine starre Preisliste. Sie helfen Ihnen, ein Gefühl
-            zu bekommen, ob wir zueinander passen.
-          </p>
-
-          <article class="card">
-            <div class="card__label">Richtwert</div>
-            <h3 class="card__title">Website „Basis“ – für kleine Betriebe &amp; Höfe</h3>
-            <p class="card__meta">
-              Typisch: Startseite, Angebotsseite, Kontakt – klar strukturiert, mobil optimiert und schnell im Alltag einsetzbar.
+      <!-- ========== Intro / Hero Preise ========== -->
+      <section class="hero" id="preise-start">
+        <div class="container hero__grid">
+          <div>
+            <div class="hero__eyebrow">Preise &amp; Pakete</div>
+            <h1 class="hero__title">
+              Klar kalkulierte Websites &amp; Web-Apps –
+              <span>mit transparenten Festpreis-Angeboten.</span>
+            </h1>
+            <p class="hero__text">
+              Jede Website ist individuell. Trotzdem soll Ihre Entscheidung nicht im Nebel stattfinden.
+              Deshalb arbeite ich mit klar umrissenen Paketen und „ab“-Preisen. So sehen Sie schnell,
+              in welcher Größenordnung sich Ihr Projekt bewegt – und wir können anschließend gemeinsam
+              feinjustieren.
             </p>
-            <ul class="card__list">
-              <li>1–3 Seiten, schlanke Struktur ohne komplizierte Sonderfunktionen</li>
-              <li>Mobil-optimiertes Layout, grundlegende Suchmaschinen-Basics</li>
-              <li>Kontaktmöglichkeit (Formular oder einfache Anfrage)</li>
-            </ul>
-            <p class="muted" style="margin-top:0.7rem;">
-              Richtwert: meist im unteren bis mittleren vierstelligen Bereich – abhängig von Umfang und Inhalt.
-            </p>
-          </article>
-
-          <article class="card">
-            <div class="card__label">Richtwert</div>
-            <h3 class="card__title">Website „Plus“ – z.&nbsp;B. für Campingplätze &amp; Destinationen</h3>
-            <p class="card__meta">
-              Für Angebote mit mehreren Bereichen: Stellplätze, Unterkünfte, Umgebung, FAQ, häufige Fragen von Familien.
-            </p>
-            <ul class="card__list">
-              <li>4–8 Seiten mit klarer Struktur nach Themen / Zielgruppen</li>
-              <li>Ausarbeitung von Seiten wie „Anreise“, „Fragen &amp; Antworten“, „Für Familien“</li>
-              <li>Optional: einfache Kartenübersichten, Hinweise zu PWA/Offline-Nutzung</li>
-            </ul>
-            <p class="muted" style="margin-top:0.7rem;">
-              Richtwert: meist im mittleren vierstelligen Bereich – je nach Anzahl der Bereiche und Inhalten.
-            </p>
-          </article>
-
-          <article class="card card--soft">
-            <div class="card__label">Individuell</div>
-            <h3 class="card__title">Web-Apps &amp; Kartenlösungen</h3>
-            <p class="card__meta">
-              Interaktive Karten, familienfreundliche Spots oder Begleit-Apps für Destinationen lassen sich schwer in
-              Pakete pressen – hier kalkuliere ich individuell.
-            </p>
-            <p class="muted">
-              Wir klären in einem Gespräch, welche Funktionen wirklich gebraucht werden und welche Technologie zu Ihrem
-              Budget passt. Auf dieser Basis erhalten Sie ein individuelles Angebot.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="container">
-          <div class="pill">
-            <span class="pill__dot"></span> Warum kein fixer Paket-Preis?
-          </div>
-          <h2 class="section__title" style="margin-top:0.8rem;">Was in jedem Projekt enthalten ist</h2>
-          <p class="section__intro">
-            Statt starre Paketpreise zu veröffentlichen, arbeite ich mit klaren Richtwerten und einem Festpreis-Angebot
-            nach einem kurzen Gespräch. Unabhängig vom Umfang gehören dazu:
-          </p>
-
-          <article class="card card--soft">
-            <ul class="card__list">
-              <li>Ein gemeinsamer Blick auf Ihre Ziele und wichtigste Zielgruppe (oft: Familien unterwegs)</li>
-              <li>Eine sinnvolle Seitenstruktur, die Ihren Gästen Orientierung gibt</li>
-              <li>Eine mobil gedachte Umsetzung, die auf Smartphones gut funktioniert</li>
-              <li>Technisch saubere Basis ohne unnötigen Agentur-Overhead</li>
-              <li>Ein klarer Ansprechpartner (kein Ticketsystem, sondern direkte Abstimmung)</li>
-            </ul>
-          </article>
-        </div>
-      </section>
-
-      <section class="cta">
-        <div class="container">
-          <div class="cta__box">
-            <h2 class="cta__title">Lassen Sie uns herausfinden, was für Sie sinnvoll ist.</h2>
-            <p class="cta__text">
-              In einem kurzen, unverbindlichen Gespräch klären wir, was Ihre Website leisten soll und in welcher
-              Größenordnung sich Ihr Projekt bewegt. Danach erhalten Sie ein transparentes Festpreis-Angebot.
-            </p>
-            <a href="mailto:hallo@heimhafen-web.de?subject=Anfrage%20Website%20HeimHafen%20Web"
-               class="btn btn--light">
-              Unverbindliche Einschätzung anfragen
-            </a>
-            <div class="cta__note">
-              Lieber ausführlicher schreiben? Nutzen Sie das Kontaktformular auf meiner Startseite –
-              ich melde mich in der Regel innerhalb von 1–2 Werktagen.
+            <div class="hero__actions">
+              <a href="#pakete" class="btn btn--primary">Pakete ansehen</a>
+              <a href="#kontakt-hinweis" class="btn btn--ghost">Fragen klären</a>
             </div>
+            <div class="hero__meta">
+              <div class="hero__meta-item">
+                <span class="hero__meta-dot"></span> Festpreise auf Basis eines kurzen Erstgesprächs
+              </div>
+              <div class="hero__meta-item">
+                <span class="hero__meta-dot"></span> Fokus auf kleinen Betrieben &amp; Campingplätzen
+              </div>
+              <div class="hero__meta-item">
+                <span class="hero__meta-dot"></span> Projekte meist im niedrigen bis mittleren vierstelligen Bereich
+              </div>
+            </div>
+          </div>
+
+          <aside class="hero__card" aria-label="Hinweis zu Preisen">
+            <div class="hero__card-title">Kurz erklärt</div>
+            <div class="hero__card-highlight">
+              Die genannten Preise sind bewusst als Richtwerte formuliert. Nach einem Erstgespräch
+              erhalten Sie ein verbindliches Festpreis-Angebot – ohne versteckte Posten.
+            </div>
+            <ul class="hero__card-list">
+              <li>Alle Pakete inkl. Konzeption, Design &amp; technischer Umsetzung</li>
+              <li>Keine laufenden Lizenzkosten von mir – soweit möglich Open-Web-Technologien</li>
+              <li>Optionale Zusatzleistungen klar ausgewiesen (z. B. Inhalte, Fotos, weitere Sprachen)</li>
+            </ul>
+            <div class="hero__card-note">
+              Wichtig: Preise verstehen sich als Netto-Richtwerte und dienen zur Orientierung.
+              Entscheidend ist immer der gemeinsam abgestimmte Leistungsumfang.
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- ========== Pakete ========== -->
+      <section class="section section--alt" id="pakete">
+        <div class="container">
+          <header class="section__header">
+            <div class="section__eyebrow">Pakete</div>
+            <h2 class="section__title">Typische Projektgrößen &amp; Preisrahmen</h2>
+            <p class="section__intro">
+              Die folgenden Pakete decken den Großteil meiner Kundenprojekte ab. Sie sollen Ihnen ein Gefühl
+              dafür geben, welche Investition für Ihren Betrieb sinnvoll ist. Im Erstgespräch klären wir, welches
+              Paket am besten zu Ihren Zielen passt – oder ob eine individuell zugeschnittene Lösung sinnvoller ist.
+            </p>
+          </header>
+
+          <div class="services__grid">
+            <!-- Basis -->
+            <article class="service-card">
+              <div class="service-card__label">Paket</div>
+              <h3 class="service-card__title">Website „Basis“ – ab ca. 2.400 &euro;</h3>
+              <p class="service-card__text">
+                Für kleine Betriebe, Höfe, Praxen oder Cafés, die einen klaren, modernen Webauftritt brauchen – ohne
+                großen Wartungsaufwand. Ideal als solide Grundlage, die bei Bedarf später erweitert werden kann.
+              </p>
+              <div class="service-card__meta">
+                <strong>Typischer Umfang:</strong><br />
+                1–3 Seiten (Start, Angebot/Leistungen, Kontakt), mobil optimiert, mit Kontaktformular
+                und Basis-SEO (sprechende URLs, Seitentitel, Meta-Descriptions, Struktur).<br /><br />
+                <strong>Geeignet, wenn:</strong> Sie mit überschaubarem Budget starten und Ihre Gäste
+                trotzdem professionell abholen möchten.
+              </div>
+            </article>
+
+            <!-- Plus -->
+            <article class="service-card">
+              <div class="service-card__label">Paket</div>
+              <h3 class="service-card__title">Website „Plus“ – ab ca. 3.800 &euro;</h3>
+              <p class="service-card__text">
+                Für Campingplätze, Destinationen und Unternehmen mit mehreren Angebotsbereichen. Mit klarer Struktur
+                für Unterkünfte, Umgebung, Über uns, FAQ und wiederkehrende Inhalte – damit Gäste Informationen dort
+                finden, wo sie sie erwarten.
+              </p>
+              <div class="service-card__meta">
+                <strong>Typischer Umfang:</strong><br />
+                4–8 Seiten mit individueller Struktur, optional mit Blog/News-Bereich
+                oder mehrsprachigen Inhalten. Inklusive Konzeption der Seitenstruktur und Abstimmung zur
+                Inhaltsaufbereitung.<br /><br />
+                <strong>Geeignet, wenn:</strong> Sie mehrere Zielgruppen oder Angebote haben und diese
+                klar gegliedert präsentieren möchten.
+              </div>
+            </article>
+
+            <!-- Web-App / Karte -->
+            <article class="service-card">
+              <div class="service-card__label">Individuell</div>
+              <h3 class="service-card__title">Web-Apps &amp; Kartenlösungen – ab ca. 5.500 &euro;</h3>
+              <p class="service-card__text">
+                Interaktive Karten, familienfreundliche Spots und Web-Apps mit Offline-Funktion. Ideal für Destinationen
+                und Regionen, die ihren Gästen mehr bieten möchten als eine klassische Website – zum Beispiel eine
+                digitale Begleitung vor Ort.
+              </p>
+              <div class="service-card__meta">
+                <strong>Typischer Umfang:</strong><br />
+                Konzeption der Anwendung, technische Umsetzung (HTML, CSS, JS, PWA-Features wo sinnvoll), Basis-Backend
+                oder Nutzung vorhandener Datenquellen. Häufig inkl. Kartenintegration (z. B. OpenStreetMap) und
+                Filterfunktionen.<br /><br />
+                <strong>Geeignet, wenn:</strong> Sie Ihren Gästen besondere digitale Services bieten möchten, die über
+                eine reine Informationswebsite hinausgehen.
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== In jedem Projekt enthalten ========== -->
+      <section class="section">
+        <div class="container">
+          <header class="section__header">
+            <div class="section__eyebrow">Leistungsumfang</div>
+            <h2 class="section__title">Was in jedem Projekt standardmäßig enthalten ist</h2>
+            <p class="section__intro">
+              Unabhängig vom Paket gibt es Leistungen, die ich grundsätzlich nicht weglasse – weil sie entscheidend
+              dafür sind, dass Ihre Website im Alltag funktioniert und nicht nur am ersten Tag gut aussieht.
+            </p>
+          </header>
+
+          <div class="audiences__grid">
+            <article class="card">
+              <h3 class="card__title">Konzeption &amp; Struktur</h3>
+              <p class="card__text">
+                Gemeinsame Klärung von Zielgruppen, Zielen und Inhalten. Ausarbeitung einer klaren Seitenstruktur,
+                die Ihren Gästen den Weg erleichtert und Rückfragen reduziert.
+              </p>
+            </article>
+            <article class="card">
+              <h3 class="card__title">Design &amp; Mobiloptimierung</h3>
+              <p class="card__text">
+                Gestaltung passend zu Ihrem Betrieb und bestehendem Auftritt. Mobile-first umgesetzt, damit die Seite
+                insbesondere auf Smartphones gut funktioniert.
+              </p>
+            </article>
+            <article class="card">
+              <h3 class="card__title">Technische Umsetzung</h3>
+              <p class="card__text">
+                Sauberer HTML/CSS/JS-Code, schlanke Technik ohne unnötige Abhängigkeiten. Grundlage für spätere
+                Erweiterungen, ohne dass alles neu gebaut werden muss.
+              </p>
+            </article>
+            <article class="card">
+              <h3 class="card__title">Basis-SEO &amp; Übergabe</h3>
+              <p class="card__text">
+                Sinnvolle Seitentitel, Meta-Descriptions, Strukturierung der Inhalte sowie eine kurze Einführung,
+                wie Sie Inhalte später selbst anpassen können. Auf Wunsch mit kurzer Video- oder PDF-Anleitung.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== FAQ ========== -->
+      <section class="section section--alt">
+        <div class="container">
+          <header class="section__header">
+            <div class="section__eyebrow">Fragen &amp; Antworten</div>
+            <h2 class="section__title">Häufige Fragen zu Preisen &amp; Zusammenarbeit</h2>
+          </header>
+
+          <div class="projects__list">
+            <article class="project-card">
+              <div>
+                <div class="project-card__label">Frage</div>
+                <h3 class="project-card__title">Warum arbeiten Sie mit „ab“-Preisen?</h3>
+                <p class="project-card__text">
+                  Zwei scheinbar ähnliche Projekte können in der Praxis sehr unterschiedlich sein:
+                  Inhalte, Anzahl der Seiten, Integrationen, Sprachen, besondere Funktionen.
+                  Die „ab“-Preise geben Ihnen Orientierung, ohne etwas zu versprechen,
+                  das für Ihr konkretes Projekt nicht realistisch ist. Im Erstgespräch klären wir,
+                  was Sie wirklich benötigen – und darauf basiert das Festpreis-Angebot.
+                </p>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div>
+                <div class="project-card__label">Frage</div>
+                <h3 class="project-card__title">Gibt es laufende Kosten?</h3>
+                <p class="project-card__text">
+                  Für Hosting und Domain fallen in der Regel jährliche Kosten bei Ihrem Anbieter an.
+                  Meine Arbeit berechne ich grundsätzlich projektbezogen als Festpreis.
+                  Falls Sie später regelmäßige Unterstützung (z. B. für Inhalte, Wartung oder Weiterentwicklung)
+                  wünschen, können wir dafür eine separate Vereinbarung treffen.
+                </p>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div>
+                <div class="project-card__label">Frage</div>
+                <h3 class="project-card__title">Wie läuft die Bezahlung ab?</h3>
+                <p class="project-card__text">
+                  Je nach Projektgröße vereinbare ich üblicherweise zwei bis drei Zahlungsabschnitte –
+                  zum Beispiel eine Anzahlung zum Projektstart und eine Zahlung nach Fertigstellung bzw. Launch.
+                  Die genaue Staffelung halte ich im Angebot transparent fest.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== Kontakt-Hinweis ========== -->
+      <section class="section" id="kontakt-hinweis">
+        <div class="container">
+          <header class="section__header">
+            <div class="section__eyebrow">Nächster Schritt</div>
+            <h2 class="section__title">Passt eines der Pakete für Sie – oder brauchen Sie etwas anderes?</h2>
+            <p class="section__intro">
+              Schreiben Sie mir kurz, wo Sie gerade stehen und was Sie mit Ihrer Website erreichen möchten.
+              Auf dieser Basis schlage ich Ihnen ein Paket vor oder mache Ihnen ein individuelles Angebot.
+            </p>
+          </header>
+
+          <div class="hero__actions">
+            <a href="index.html#kontakt" class="btn btn--primary">Unverbindliches Erstgespräch vereinbaren</a>
+            <a href="index.html#projekte" class="btn btn--ghost">Beispiele ansehen</a>
           </div>
         </div>
       </section>
@@ -686,12 +942,12 @@
 
     <!-- ========== Footer ========== -->
     <footer class="site-footer">
-      <div class="site-footer__inner">
+      <div class="container site-footer__inner">
         <div>© <span id="year"></span> HeimHafen Web – Markus Eiben</div>
         <div class="site-footer__links">
           <a href="impressum.html">Impressum</a>
           <a href="datenschutz.html">Datenschutz</a>
-          <a href="index.html#start">Zur Startseite</a>
+          <a href="#preise-start">Nach oben</a>
         </div>
       </div>
     </footer>
