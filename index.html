@@ -119,56 +119,79 @@
       top: 0;
       z-index: 100;
       background: rgba(245, 245, 247, 0.96);
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(14px);
       border-bottom: 1px solid rgba(221, 224, 231, 0.7);
+      padding-top: max(0.9rem, env(safe-area-inset-top));
+      padding-bottom: 0.9rem;
+    }
+
+    /* Header bewusst etwas schmaler und weiter eingerückt als der restliche Content */
+    .site-header .container {
+      max-width: 720px;
+      padding-inline: 1.75rem;
     }
 
     .site-header__inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: var(--space-s) 0;
+      gap: 1rem;
     }
 
     .site-brand {
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      gap: var(--space-s);
-      font-weight: 600;
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
-      font-size: 0.9rem;
+      gap: 0.7rem;
+      padding: 0.45rem 1.1rem;
+      border-radius: 999px;
+      background: var(--color-surface);
+      box-shadow: 0 10px 30px rgba(15, 35, 52, 0.16);
     }
 
     .site-brand__logo {
-      width: 30px;
-      height: 30px;
+      position: relative;
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
       border-radius: 999px;
-      background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
-      display: flex;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
-      color: #ffffff;
-      font-size: 0.85rem;
       font-weight: 700;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.07em;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      color: #ffffff;
+      background: radial-gradient(circle at 30% 0,
+        #fbe2b0 0%,
+        #e39a5f 40%,
+        #285678 100%);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22);
     }
 
-    .site-brand__logo span {
-      transform: translateY(0.5px);
+    .site-brand__logo::after {
+      content: "";
+      position: absolute;
+      inset: 2px;
+      border-radius: inherit;
+      border: 1px solid rgba(255, 255, 255, 0.35);
     }
 
     .site-brand__text {
       display: flex;
       flex-direction: column;
-      gap: 0;
+      line-height: 1.15;
     }
 
-    .site-brand__text small {
-      margin-top: -2px;
-      text-transform: none;
-      letter-spacing: 0;
-      font-size: 0.7rem;
+    .site-brand__name {
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .site-brand__tagline {
+      font-size: 0.75rem;
       color: var(--color-text-soft);
     }
 
@@ -176,6 +199,7 @@
       display: flex;
       align-items: center;
       gap: var(--space-l);
+      position: relative;
     }
 
     .site-nav__list {
@@ -207,6 +231,7 @@
       cursor: pointer;
       font-weight: 500;
       box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+      white-space: nowrap;
     }
 
     .site-nav__cta:hover {
@@ -215,9 +240,11 @@
 
     .site-nav__toggle {
       display: none;
-      border: none;
-      background: none;
-      font-size: 1.3rem;
+      border-radius: 999px;
+      border: 1px solid rgba(221, 224, 231, 0.9);
+      padding: 0.55rem 0.7rem;
+      background: rgba(255, 255, 255, 0.9);
+      font-size: 1.1rem;
       cursor: pointer;
     }
 
@@ -225,6 +252,12 @@
       .site-nav__list,
       .site-nav__cta {
         display: none;
+      }
+
+      .site-nav__toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
       }
 
       .site-nav--open .site-nav__list,
@@ -237,19 +270,15 @@
         align-items: flex-start;
         background: var(--color-bg);
         position: absolute;
-        top: 56px;
-        right: 0;
-        left: 0;
-        padding: var(--space-m);
+        top: 54px;
+        right: -1.75rem;
+        left: -1.75rem;
+        padding: var(--space-m) 1.75rem var(--space-m);
         border-bottom: 1px solid var(--color-border);
       }
 
       .site-nav--open .site-nav__cta {
-        margin: var(--space-s) var(--space-m);
-      }
-
-      .site-nav__toggle {
-        display: inline-flex;
+        margin: var(--space-s) 1.75rem var(--space-s);
       }
     }
 
@@ -786,8 +815,8 @@
         <div class="site-brand">
           <div class="site-brand__logo" aria-hidden="true"><span>HH</span></div>
           <div class="site-brand__text">
-            <div>HeimHafen Web</div>
-            <small>Websites & Web-Apps mit Familienblick</small>
+            <div class="site-brand__name">HeimHafen Web</div>
+            <div class="site-brand__tagline">Websites &amp; Web-Apps mit Familienblick</div>
           </div>
         </div>
         <nav class="site-nav" id="site-nav">
@@ -822,9 +851,9 @@
       <section class="hero" id="start">
         <div class="container hero__grid">
           <div>
-            <div class="hero__eyebrow">Webdesign & Entwicklung</div>
+            <div class="hero__eyebrow">Webdesign &amp; Entwicklung</div>
             <h1 class="hero__title">
-              Websites & Web-Apps, die Ihren <span>Gästen wirklich weiterhelfen.</span>
+              Websites &amp; Web-Apps, die Ihren <span>Gästen wirklich weiterhelfen.</span>
             </h1>
             <p class="hero__text">
               Ich konzipiere und entwickle schlanke, mobile-optimierte Webauftritte für Campingplätze,
@@ -837,7 +866,7 @@
             </div>
             <div class="hero__meta">
               <div class="hero__meta-item">
-                <span class="hero__meta-dot"></span> Fokus auf Familien- & Gästeperspektive
+                <span class="hero__meta-dot"></span> Fokus auf Familien- &amp; Gästeperspektive
               </div>
               <div class="hero__meta-item">
                 <span class="hero__meta-dot"></span> Mobil zuerst gedacht
@@ -851,12 +880,12 @@
           <aside class="hero__card" aria-label="Kurzüberblick zum Angebot">
             <div class="hero__card-title">Was Sie erwarten können</div>
             <div class="hero__card-highlight">
-              Klar strukturierte Websites und Web-Apps mit echtem Familien- & Gäste-Fokus – verständlich für
+              Klar strukturierte Websites und Web-Apps mit echtem Familien- &amp; Gäste-Fokus – verständlich für
               Besucher:innen und gut wartbar für Ihren Betrieb.
             </div>
             <ul class="hero__card-list">
               <li>Schlanke, verständliche Seitenstruktur</li>
-              <li>Mobile-optimierte Umsetzung & schnelle Ladezeiten</li>
+              <li>Mobile-optimierte Umsetzung &amp; schnelle Ladezeiten</li>
               <li>Technisch saubere Basis (HTML, CSS, JS, PWA wo sinnvoll)</li>
               <li>DSGVO und Nutzung per Smartphone im Blick</li>
             </ul>
@@ -881,14 +910,14 @@
 
           <div class="audiences__grid">
             <article class="card">
-              <h3 class="card__title">Campingplätze & Stellplätze</h3>
+              <h3 class="card__title">Campingplätze &amp; Stellplätze</h3>
               <p class="card__text">
                 Übersichtliche Darstellung von Stellplätzen, Ausstattung, Preisen und Umgebung – auf dem Smartphone
                 genauso gut nutzbar wie am PC.
               </p>
             </article>
             <article class="card">
-              <h3 class="card__title">Destinationen & Tourismusregionen</h3>
+              <h3 class="card__title">Destinationen &amp; Tourismusregionen</h3>
               <p class="card__text">
                 Ausflugstipps, Familienangebote und Lieblingsorte gebündelt an einem Ort – statt verstreuter PDFs und
                 veralteter Unterseiten.
@@ -902,7 +931,7 @@
               </p>
             </article>
             <article class="card">
-              <h3 class="card__title">Lokale Dienstleister & kleine Unternehmen</h3>
+              <h3 class="card__title">Lokale Dienstleister &amp; kleine Unternehmen</h3>
               <p class="card__text">
                 Klare Leistungsseiten, sympathische Vorstellung Ihres Unternehmens und eine einfache Möglichkeit zur
                 Kontaktaufnahme.
@@ -956,7 +985,7 @@
 
             <article class="service-card">
               <div class="service-card__label">Individuell</div>
-              <h3 class="service-card__title">Web-Apps & Kartenlösungen</h3>
+              <h3 class="service-card__title">Web-Apps &amp; Kartenlösungen</h3>
               <p class="service-card__text">
                 Interaktive Karten, familienfreundliche Spots und Web-Apps mit Offline-Funktion. Ideal für Destinationen
                 und Regionen, die ihren Gästen mehr bieten möchten als eine klassische Website – zum Beispiel eine
@@ -975,7 +1004,7 @@
         <div class="container">
           <header class="section__header">
             <div class="section__eyebrow">Projekte</div>
-            <h2 class="section__title">Ausgewählte Beispiele & Showcases</h2>
+            <h2 class="section__title">Ausgewählte Beispiele &amp; Showcases</h2>
             <p class="section__intro">
               Einige Einblicke in exemplarische Websites und Konzepte, die zeigen, wie ein moderner,
               nutzerorientierter Webauftritt aussehen kann – besonders für Campingplätze, kleine Betriebe
@@ -995,7 +1024,7 @@
                 <p class="project-card__text">
                   Konzipiert als Beispiel für kleine Campingplätze und Ferienbetriebe: klare Startseite,
                   Vorstellung von Stellplätzen und Unterkünften, Erlebnisse in der Umgebung,
-                  Infos & FAQ sowie eine unkomplizierte Kontaktmöglichkeit.
+                  Infos &amp; FAQ sowie eine unkomplizierte Kontaktmöglichkeit.
                 </p>
                 <div class="project-card__actions">
                   <a
@@ -1078,7 +1107,7 @@
             <aside class="about__highlight">
               <strong>Was Sie an der Zusammenarbeit schätzen könnten:</strong>
               <ul>
-                <li>Klarer Fokus auf Mobilgeräte & Familienperspektive</li>
+                <li>Klarer Fokus auf Mobilgeräte &amp; Familienperspektive</li>
                 <li>Technisch schlanke, gut wartbare Lösungen</li>
                 <li>Verständliche Erklärungen statt Fachbegriffen</li>
               </ul>
@@ -1102,7 +1131,7 @@
           <div class="process__steps">
             <article class="step-card">
               <div class="step-card__badge">1</div>
-              <h3 class="step-card__title">Kennenlernen & Ziele</h3>
+              <h3 class="step-card__title">Kennenlernen &amp; Ziele</h3>
               <p class="step-card__text">
                 In einem kurzen Gespräch klären wir, was Sie mit Ihrer Website erreichen wollen, wer Ihre Zielgruppe ist
                 und in welchem Rahmen sich das Projekt bewegen soll.
@@ -1110,7 +1139,7 @@
             </article>
             <article class="step-card">
               <div class="step-card__badge">2</div>
-              <h3 class="step-card__title">Struktur & Angebot</h3>
+              <h3 class="step-card__title">Struktur &amp; Angebot</h3>
               <p class="step-card__text">
                 Ich erarbeite einen Vorschlag für Seitenstruktur und Inhalte und mache Ihnen auf dieser Basis ein
                 transparentes Festpreis-Angebot.
@@ -1118,7 +1147,7 @@
             </article>
             <article class="step-card">
               <div class="step-card__badge">3</div>
-              <h3 class="step-card__title">Umsetzung & Feedback</h3>
+              <h3 class="step-card__title">Umsetzung &amp; Feedback</h3>
               <p class="step-card__text">
                 Ich setze Design und Technik um und zeige Ihnen Zwischenstände. In ein bis zwei Feedbackrunden passen wir
                 Inhalte und Details gemeinsam an.
@@ -1126,7 +1155,7 @@
             </article>
             <article class="step-card">
               <div class="step-card__badge">4</div>
-              <h3 class="step-card__title">Launch & Feinschliff</h3>
+              <h3 class="step-card__title">Launch &amp; Feinschliff</h3>
               <p class="step-card__text">
                 Nach Freigabe geht die Seite live. In den ersten Wochen sind kleinere Anpassungen inklusive, damit alles
                 für Sie und Ihre Gäste stimmig ist.
